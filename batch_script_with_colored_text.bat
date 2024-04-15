@@ -7,9 +7,16 @@ call :initColorPrint
 :: Place this after "call :initColorPrint" or the code will break
 setlocal enableDelayedExpansion
 
-
-:: Insert Your Code Here :)
-:: btw, for unknown reasons, using colorprint and displaying a ! will not show that exclamation point.
+:: Insert your code here! This one is an example code that displays all possible color variations.
+title Batch Script with Colored Text
+echo START
+for %%a in (0 1 2 3 4 5 6 7 8 9 A B C D E F) do (
+    for %%b in (0 1 2 3 4 5 6 7 8 9 A B C D E F) do (
+        call :colorPrint %%a%%b "Hello World!" /n
+    )
+)
+echo END
+pause
 
 :: Please place this part of the code below to the very bottom! ============================================
 :: The Color Print Code. Coloring the texts on the windows terminal.
@@ -17,7 +24,7 @@ setlocal enableDelayedExpansion
 :: 1: Blue    5: Purple   9: Light Blue    D: Light Purple
 :: 2: Green   6: Yellow   A: Light Green   E: Light Yellow
 :: 3: Aqua    7: White    B: Light Aqua    F: Bright White
-:: First character is background. Second character is foreground. To use, use it like this:
+:: First character is background. Second character is foreground. To use, you can use it like this:
 :: call :colorPrint 07 "Hello World, You can also" &call :colorPrint 02 " chain it! "&call :colorPrint 08 "(add the n thing to make a newline)" /n
 :colorPrint Color  Str  [/n]
 setlocal
