@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, noimageindex, nofollow, noarchive, nosnippet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+    <title>Template Reference Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* 
+        *
+        * Font should be set as:
+        * <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        * to enable Cloudflare Fonts.
+        *
+        */
+        
+        :root {
+          --text-color: #e0e2f4;
+          --bg-color: #212121;
+          --highlight-color: #aaa;
+          --server-stats-color: #777;
+          --body-font: normal 20px/1.25rem 'VT323', monospace;
+          --h1-font: normal 2.75rem/1.05em 'VT323', monospace;
+          --h2-font: normal 2rem/1.25em 'VT323', monospace;
+          --common-font: normal 1.25rem 'VT323', monospace;
+          text-align: center;
+        }
+              
+        body {
+          background: var(--bg-color);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--text-color);
+          font: var(--body-font);
+        }
+              
+        .container {
+          width: 90%;
+          margin: auto;
+          max-width: 640px;
+          padding-top: 5%;
+          padding-bottom: 5%;
+        }
+        
+        h1 {
+          font: var(--h1-font);
+          margin: 20px 0;
+        }
+         
+        h2 {
+          font: var(--h2-font);
+          margin: 0 0 5px 0;
+        }
+        
+        p, a, button {
+          font: var(--common-font);
+          margin: 0;
+        }
+        
+        .highlight-background {
+          background: var(--highlight-color);
+          color: var(--bg-color);
+          padding: 0 15px 0 15px;
+        }
+        
+        .highlight-background::selection {
+          background-color:var(--bg-color);
+          color:var(--highlight-color);
+          padding:1px 15px 1px 15px
+        }
+        
+        nav {
+          margin: 20px 0;
+        }
+              
+        a, button {
+          text-decoration: none;
+          color: var(--text-color);
+          background: none;
+          border: none;
+          cursor: pointer;
+          position: relative;
+        }
+              
+        button {
+          padding: 0 5px;
+          margin: 0 5px;
+        }
+              
+        .server-stats {
+          font-size: 0.9rem;
+          color: var(--server-stats-color);
+        }
+              
+        button::before,
+        button::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          font-size: 1.25rem;
+          transition: transform 0.2s ease;
+        }
+              
+        button::before {
+          content: '[';
+          left: -3px;
+          color: var(--text-color);
+        }
+              
+        button::after {
+          content: ']';
+          right: -3px;
+          color: var(--text-color);
+        }
+              
+        a:hover,
+        a:focus {
+          background: var(--highlight-color);
+          color: var(--bg-color);
+        }
+              
+        button:hover::before,
+        button:focus::before {
+          transform: translateX(-5px);
+          color: var(--bg-color);
+        }
+              
+        button:hover::after,
+        button:focus::after {
+          transform: translateX(5px);
+          color: var(--bg-color);
+        }
+              
+        button:hover,
+        button:focus {
+          background: var(--highlight-color);
+          color: var(--bg-color);
+        }
+              
+        button:hover span,
+        button:focus span {
+          color: var(--bg-color);
+        }
+              
+        button:hover::before,
+        button:focus::before,
+        button:hover::after,
+        button:focus::after {
+          background: var(--highlight-color);
+        }
+              
+        ::selection {
+          background-color: var(--highlight-color);
+          color: var(--bg-color);
+          padding: 2px 15px 2px 15px;
+        }
+        
+        /* https://stackoverflow.com/questions/1409649/how-to-change-the-height-of-a-br */
+        /* Basically, this does a shift-enter on a text, making no unnecessary spaces. */
+        br {
+          display: block;
+          content: "";
+          margin-top: 0;
+        }
+        
+        .input {
+          border: 2px dashed var(--text-color);
+          box-sizing: border-box;
+          padding: .3rem;
+          display: flex;
+          align-items: center;
+          background: none;
+          color: var(--text-color);
+          font: inherit;
+          outline: none;
+          width: 100%;
+        }
+        
+        .input:not(:placeholder-shown) {
+          border-style: solid;
+        }
+        
+        /* A non-standard alternative to <br> */
+        /* use <spacer></spacer> to add space */
+        spacer {
+          display: block;
+          content: "";
+          margin-top: 1em;
+        }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <section>
+        <h1>
+            <span class="highlight-background">Template Reference Page</span>
+        </h1>
+        <p>This is a template page designed to be a reference for future projects.</p>
+        <p>Because <a>why not?</a> hehe</p>
+        <p>Feel Free to copypaste things from this thing!</p>
+        <spacer></spacer>
+        <div>
+            <input type="text" placeholder="Enter text" class="input">
+        </div>
+        <nav>
+            <button onclick="window.history.back();">Go Back</button>
+        </nav>
+        <p class="server-stats">Served by Something<br>Timestamp goes here</p>
+    </section>
+  </div>
+  </body>
+</html>
