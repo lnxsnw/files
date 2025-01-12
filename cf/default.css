@@ -149,6 +149,7 @@ button:focus::after {
 }
 
 /* https://stackoverflow.com/questions/1409649/how-to-change-the-height-of-a-br */
+/* Basically, this does a shift-enter on a text, making no unnecessary spaces. */
 br {
   display: block;
   content: "";
