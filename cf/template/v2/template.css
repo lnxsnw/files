@@ -131,7 +131,6 @@ body {
     font: var(--body-font);
     min-height: 100vh;
     margin: 0;
-    padding: 1em 0;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .container {
