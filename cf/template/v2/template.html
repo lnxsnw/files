@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, noimageindex, nofollow, noarchive, nosnippet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌠</text></svg>">
+    <title>Enhanced Hello, World! - HTML5 Showcase</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        :root {
+            --text-color: #e0e2f4;
+            --bg-color: #212121;
+            --highlight-color: #aaa;
+            --server-stats-color: #777;
+            --border-color: var(--text-color); /* Default border, e.g. for fieldset */
+            
+            --input-border-color: var(--text-color); /* Specific for most input borders */
+            --input-bg-color: var(--bg-color);
+            --input-text-color: var(--text-color);
+            --input-placeholder-color: var(--highlight-color);
+
+            --input-highlight-bg: var(--highlight-color);
+            --input-highlight-text: var(--bg-color);
+            --input-highlight-border: var(--highlight-color);
+            
+            --button-bracket-color: var(--text-color);
+            --button-text-color: var(--text-color);
+            --button-hover-bg: var(--highlight-color);
+            --button-hover-text: var(--bg-color);
+            --button-hover-bracket-color: var(--bg-color);
+
+            --select-arrow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e0e2f4'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            --select-arrow-focus-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23212121'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            --search-cancel-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e0e2f4'%3E%3Cpath fill-rule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            --search-cancel-focus-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23212121'%3E%3Cpath fill-rule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            
+            --checkbox-tick-color: var(--bg-color);
+            --radio-dot-color: var(--bg-color);
+            
+            --error-border-color: #e74c3c;
+            --warning-border-color: #f39c12;
+
+            --media-controls-bg: rgba(0,0,0,0.3);
+            --media-container-bg: rgba(255,255,255,0.03);
+            --dialog-backdrop-bg: rgba(0,0,0,0.6);
+            --dialog-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+            --scrollbar-track: var(--bg-color);
+            --scrollbar-thumb: var(--highlight-color);
+            --scrollbar-thumb-hover: var(--text-color);
+            --scrollbar-border: var(--server-stats-color);
+
+            --code-text-color: #f89f82;
+            --code-bg-color: rgba(128,128,128,0.15);
+            
+            --details-bg: rgba(255,255,255,0.05);
+            --details-border: var(--input-border-color);
+            --details-summary-text: var(--highlight-color);
+            --details-summary-hover-bg: var(--highlight-color);
+            --details-summary-hover-text: var(--bg-color);
+
+            --progress-meter-track: var(--bg-color);
+            --progress-meter-value: var(--highlight-color);
+            --progress-meter-border: var(--input-border-color);
+
+
+            --body-font: normal 20px/1.25rem 'VT323', monospace;
+            --h1-font: normal 2.75rem/1.05em 'VT323', monospace;
+            --h2-font: normal 2rem/1.25em 'VT323', monospace;
+            --common-font: normal 1.25rem 'VT323', monospace;
+            text-align: center;
+        }
+
+        html[data-theme='light'] {
+            --text-color: #212121;
+            --bg-color: #f0f0f0;
+            --highlight-color: #555;
+            --server-stats-color: #888;
+            --border-color: var(--text-color);
+            
+            --input-border-color: #777;
+            --input-bg-color: #fff;
+            --input-text-color: var(--text-color);
+            --input-placeholder-color: #999;
+
+            --input-highlight-bg: var(--highlight-color);
+            --input-highlight-text: #f0f0f0;
+            --input-highlight-border: var(--highlight-color);
+
+            --button-bracket-color: var(--text-color);
+            --button-text-color: var(--text-color);
+            --button-hover-bg: var(--highlight-color);
+            --button-hover-text: #f0f0f0;
+            --button-hover-bracket-color: #f0f0f0;
+
+            --select-arrow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23212121'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            --select-arrow-focus-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23f0f0f0'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            --search-cancel-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23212121'%3E%3Cpath fill-rule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            --search-cancel-focus-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23f0f0f0'%3E%3Cpath fill-rule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+            
+            --checkbox-tick-color: var(--input-bg-color);
+            --radio-dot-color: var(--input-bg-color);
+
+            --error-border-color: #d9534f;
+            --warning-border-color: #f0ad4e;
+
+            --media-controls-bg: rgba(255,255,255,0.3);
+            --media-container-bg: rgba(0,0,0,0.03);
+            --dialog-backdrop-bg: rgba(255,255,255,0.6);
+            --dialog-shadow: 0 0 20px rgba(0,0,0,0.2);
+
+            --scrollbar-track: var(--bg-color);
+            --scrollbar-thumb: var(--highlight-color);
+            --scrollbar-thumb-hover: var(--text-color);
+            --scrollbar-border: #ccc;
+            
+            --code-text-color: #c7254e;
+            --code-bg-color: rgba(0,0,0,0.05);
+
+            --details-bg: rgba(0,0,0,0.03);
+            --details-border: var(--input-border-color);
+            --details-summary-text: var(--highlight-color);
+            --details-summary-hover-bg: var(--details-summary-text);
+            --details-summary-hover-text: #fff;
+
+            --progress-meter-track: #ddd;
+            --progress-meter-value: var(--highlight-color);
+            --progress-meter-border: #bbb;
+        }
+
+        /* Custom Scrollbar (WebKit) */
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); border-left: 1px solid var(--scrollbar-border); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+        ::-webkit-scrollbar-corner { background: var(--scrollbar-track); }
+
+
+        body {
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            font: var(--body-font);
+            min-height: 100vh;
+            margin: 0;
+            padding: 1em 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            width: 70%;
+            margin: auto;
+            padding-top: 2%;
+            padding-bottom: 2%;
+        }
+
+        header, main, footer { width: 100%; }
+
+        h1 { font: var(--h1-font); margin: 20px 0; overflow-wrap: break-word; word-wrap: break-word; }
+        h2 { font: var(--h2-font); margin: 15px 0 15px 0; }
+        h3 { font: var(--h2-font); font-size: 1.5rem; margin: 1.5em 0 0.75em 0; color: var(--highlight-color); }
+
+        p, a, button, label, figcaption, summary, details > p, output, time, mark {
+            font: var(--common-font);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        p:last-child { margin-bottom: 0; }
+
+        .highlight-background { background: var(--highlight-color); color: var(--bg-color); padding: 3px 15px; }
+        .highlight-background::selection { background-color: var(--bg-color); color: var(--highlight-color); padding: 1px 15px; }
+
+        mark { background-color: var(--highlight-color); color: var(--bg-color); padding: 0.1em 0.3em; }
+
+        code {
+            color: var(--code-text-color);
+            background-color: var(--code-bg-color);
+            padding: 0.1em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        nav { margin: 20px 0; }
+
+        a, button {
+            text-decoration: none;
+            color: var(--button-text-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        a {
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        button { padding: 0 5px; margin: 0 5px; }
+
+        .server-stats { font-size: .9rem; color: var(--server-stats-color); margin-top: 20px; }
+
+        button::before, button::after { content: ''; position: absolute; top: 0; font-size: 1.25rem; transition: transform .2s ease, color .2s ease; }
+        button::before { content: '['; left: -3px; color: var(--button-bracket-color); }
+        button::after { content: ']'; right: -3px; color: var(--button-bracket-color); }
+        a:hover, a:focus { background: var(--button-hover-bg); color: var(--button-hover-text); }
+        button:hover::before, button:focus::before { transform: translateX(-5px); color: var(--button-hover-bracket-color); }
+        button:hover::after, button:focus::after { transform: translateX(5px); color: var(--button-hover-bracket-color); }
+        button:hover, button:focus { background: var(--button-hover-bg); color: var(--button-hover-text); }
+        button:hover span, button:focus span { color: var(--button-hover-text); }
+        button:hover::before, button:focus::before, button:hover::after, button:focus::after { background: var(--button-hover-bg); }
+
+        ::selection { background-color: var(--highlight-color); color: var(--bg-color); padding: 2px 15px; }
+
+        /* Form Element Styling */
+        input[type="text"], input[type="email"], input[type="tel"], input[type="url"],
+        input[type="date"], input[type="time"], input[type="datetime-local"],
+        input[type="month"], input[type="week"], input[type="number"], input[type="search"],
+        textarea, select {
+            border: 2px dashed var(--input-border-color);
+            box-sizing: border-box;
+            padding: .3rem .5rem;
+            display: block;
+            width: 100%;
+            background: var(--input-bg-color);
+            color: var(--input-text-color);
+            font: inherit;
+            outline: none;
+            margin-bottom: 1em;
+            border-radius: 0;
+            appearance: none; -webkit-appearance: none; -moz-appearance: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+        textarea { resize: vertical; max-height: 25em; min-height: 5em; } /* Limit textarea resize */
+
+        select {
+            background-image: var(--select-arrow-svg);
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.25em 1.25em;
+            padding-right: 2.5rem;
+        }
+        select:focus { background-image: var(--select-arrow-focus-svg); }
+
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration { -webkit-appearance:none; appearance: none; }
+        
+        input[type="search"]::-webkit-search-cancel-button {
+            display: inline-block; width: 12px; height: 12px; margin-left: .5em;
+            background-image: var(--search-cancel-svg);
+            background-repeat: no-repeat; background-size: 12px 12px; cursor: pointer;
+        }
+        input[type="search"]:focus::-webkit-search-cancel-button { background-image: var(--search-cancel-focus-svg); }
+
+        input[type="text"]:not(:placeholder-shown):not(:invalid),
+        input[type="email"]:not(:placeholder-shown):not(:invalid),
+        input[type="tel"]:not(:placeholder-shown):not(:invalid),
+        input[type="url"]:not(:placeholder-shown):not(:invalid),
+        input[type="search"]:not(:placeholder-shown):not(:invalid),
+        textarea:not(:placeholder-shown):not(:invalid),
+        input[type="date"]:valid:not(:invalid),
+        input[type="time"]:valid:not(:invalid),
+        input[type="datetime-local"]:valid:not(:invalid),
+        input[type="month"]:valid:not(:invalid),
+        input[type="week"]:valid:not(:invalid),
+        input[type="number"]:valid:not(:invalid),
+        select:valid:not(:invalid) {
+            border-style: solid;
+        }
+        
+        input:focus:not(:invalid), textarea:focus:not(:invalid), select:focus:not(:invalid) {
+             border-style: solid;
+             border-color: var(--input-highlight-border);
+             background-color: var(--input-highlight-bg);
+             color: var(--input-highlight-text);
+        }
+        input::placeholder, textarea::placeholder { color: var(--input-placeholder-color); opacity: 0.8; }
+        input:focus::placeholder, textarea:focus::placeholder { color: var(--input-highlight-text); opacity: 0.7; }
+
+        /* Error Styling */
+        input:invalid, textarea:invalid, select:invalid {
+            border-color: var(--error-border-color) !important;
+            border-style: solid !important;
+        }
+        input:focus:invalid, textarea:focus:invalid, select:focus:invalid {
+            border-color: var(--error-border-color) !important;
+            background-color: var(--input-highlight-bg); 
+            color: var(--input-highlight-text);
+            box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 3px var(--error-border-color);
+        }
+
+
+        input[type="color"], input[type="range"], input[type="checkbox"], input[type="radio"] {
+            display: inline-block; width: auto; vertical-align: middle;
+            appearance: auto; -webkit-appearance: auto; -moz-appearance: auto;
+        }
+        input[type="color"] {
+            height: 2.5rem; padding: 0.1rem; border-style: solid; border-width: 2px;
+            border-color: var(--input-border-color); margin-right: 0.5em; background: var(--input-bg-color);
+        }
+        input[type="color"]:focus { border-color: var(--input-highlight-border); }
+
+        input[type="range"] { width: calc(100% - 4.5em); margin-right: 0.5em; height: 1.5em; padding: 0; background: transparent; }
+        output { display: inline-block; width: 3.5em; text-align: right; font: var(--common-font); vertical-align: middle; }
+
+        fieldset { border: 2px dashed var(--border-color); padding: 1em; margin-bottom: 1.5em; text-align: left; }
+        legend { font: var(--common-font); color: var(--text-color); padding: 0 0.5em; margin-left: -0.5em; }
+        label { display: block; margin-bottom: 0.3em; text-align: left; }
+
+        .form-control-group { display: flex; align-items: center; margin-bottom: 0.5em; cursor: pointer; }
+        .form-control-group label { margin-bottom: 0; margin-left: 0.5em; display: inline; text-align: left; }
+
+        input[type="checkbox"], input[type="radio"] {
+            appearance: none; -webkit-appearance: none; -moz-appearance: none;
+            width: 1.25em; height: 1.25em; border: 2px solid var(--input-border-color);
+            position: relative; cursor: pointer; outline: none; vertical-align: middle;
+            flex-shrink: 0; background-color: var(--input-bg-color);
+        }
+        input[type="checkbox"] { border-radius: 3px; }
+        input[type="radio"] { border-radius: 50%; }
+
+        input[type="checkbox"]:checked, input[type="radio"]:checked {
+            background-color: var(--input-highlight-bg); border-color: var(--input-highlight-border);
+        }
+
+        input[type="checkbox"]:checked::before {
+            content: ''; display: block;
+            width: 0.65em; height: 0.3em;
+            border-left: 0.12em solid var(--checkbox-tick-color); /* Use variable, adjusted thickness */
+            border-bottom: 0.12em solid var(--checkbox-tick-color);
+            transform: rotate(-45deg) translate(-0.05em, 0.12em); /* Adjusted Y translate */
+            position: absolute;
+            top: 0.25em; /* Lifted slightly */
+            left: 0.22em;
+        }
+        input[type="radio"]:checked::before {
+            content: ''; display: block; width: 0.6em; height: 0.6em;
+            background-color: var(--radio-dot-color); border-radius: 50%;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        }
+        input[type="checkbox"]:focus, input[type="radio"]:focus {
+            box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--input-highlight-border);
+        }
+        input[type="checkbox"]:disabled, input[type="radio"]:disabled {
+            border-color: var(--server-stats-color); background-color: var(--bg-color); cursor: not-allowed;
+        }
+        input[type="checkbox"]:disabled + label, input[type="radio"]:disabled + label { color: var(--server-stats-color); cursor: not-allowed; }
+        input[type="checkbox"]:checked:disabled, input[type="radio"]:checked:disabled {
+            background-color: var(--server-stats-color); border-color: var(--server-stats-color);
+        }
+        input[type="checkbox"]:checked:disabled::before {
+             border-left-color: var(--checkbox-tick-color); border-bottom-color: var(--checkbox-tick-color);
+        }
+        input[type="radio"]:checked:disabled::before { background-color: var(--radio-dot-color); }
+
+        /* Custom File Input */
+        .form-file-upload { position: relative; margin-bottom: 1em; text-align: left; }
+        .form-file-upload input[type="file"] {
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+            opacity: 0; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+            border: none; padding: 0; margin: 0;
+        }
+        .form-file-label { display: block; margin-bottom: 0.3em; }
+        .form-file-button {
+            display: inline-block; font: var(--common-font); padding: .3rem .75rem;
+            background: var(--input-bg-color); color: var(--input-text-color);
+            border: 2px dashed var(--input-border-color); cursor: pointer;
+            margin-right: 0.5em; vertical-align: middle;
+            transition: background .2s ease, color .2s ease, border-color .2s ease;
+        }
+        .form-file-text {
+            font: var(--common-font); vertical-align: middle; color: var(--text-color);
+            display: inline-block; max-width: calc(100% - 12em); /* Adjust if button text changes width */
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .form-file-upload input[type="file"]:hover + .form-file-button,
+        .form-file-upload input[type="file"]:focus + .form-file-button,
+        .form-file-upload.file-chosen .form-file-button {
+            border-style: solid;
+            border-color: var(--input-highlight-border);
+            background: var(--input-highlight-bg);
+            color: var(--input-highlight-text);
+        }
+        .form-file-upload input[type="file"]:disabled + .form-file-button {
+            border-color: var(--server-stats-color); background: var(--bg-color);
+            color: var(--server-stats-color); cursor: not-allowed;
+        }
+        .form-file-upload input[type="file"]:disabled ~ .form-file-text { color: var(--server-stats-color); }
+
+        /* Details/Summary element styling */
+        details {
+            border: 1px dashed var(--details-border); padding: 0.5em; margin-bottom: 1em;
+            background-color: var(--details-bg); text-align: left;
+        }
+        summary {
+            cursor: pointer; color: var(--details-summary-text); padding: 0.25em; list-style-position: inside;
+            outline: none; transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        summary:hover, summary:focus {
+            background-color: var(--details-summary-hover-bg);
+            color: var(--details-summary-hover-text);
+        }
+        details[open] summary { margin-bottom: 0.5em; }
+
+        /* Progress & Meter elements */
+        progress, meter {
+            width: 100%; height: 1.5rem; margin-bottom: 0.5em;
+            appearance: none; -webkit-appearance: none; -moz-appearance: none;
+            border: 1px solid var(--progress-meter-border);
+            background-color: var(--progress-meter-track);
+            border-radius: 0; overflow: hidden;
+        }
+        progress::-webkit-progress-bar, meter::-webkit-meter-bar {
+            background-color: var(--progress-meter-track); border-radius: 0;
+        }
+        progress::-webkit-progress-value,
+        meter::-webkit-meter-optimum-value,
+        meter::-webkit-meter-suboptimum-value,
+        meter::-webkit-meter-even-less-good-value {
+            background-color: var(--progress-meter-value); border-radius: 0;
+        }
+        progress::-moz-progress-bar, meter::-moz-meter-bar {
+            background-color: var(--progress-meter-value); border-radius: 0;
+        }
+
+        @keyframes barberPole { from { background-position: 0 0; } to { background-position: 40px 0; } }
+        progress:not([value])::-webkit-progress-value {
+            background-color: transparent;
+            background-image: linear-gradient(-45deg, var(--progress-meter-value) 25%, transparent 25%, transparent 50%, var(--progress-meter-value) 50%, var(--progress-meter-value) 75%, transparent 75%, transparent);
+            background-size: 40px 40px; animation: barberPole 0.7s linear infinite; border-radius: 0;
+        }
+        progress:not([value])::-moz-progress-bar {
+             background-color: transparent;
+             background-image: linear-gradient(-45deg, var(--progress-meter-value) 25%, transparent 25%, transparent 50%, var(--progress-meter-value) 50%, var(--progress-meter-value) 75%, transparent 75%, transparent);
+            background-size: 40px 40px; animation: barberPole 0.7s linear infinite; border-radius: 0;
+        }
+
+        #cli-spinner-container {
+            font: var(--common-font); color: var(--highlight-color);
+            display: inline-block; min-width: 1.5em; text-align: center; margin: 1em 0;
+        }
+        #cli-spinner { display: inline-block; }
+
+        .loader-dots { text-align: center; margin: 1em auto; }
+        .loader-dots span {
+            display: inline-block; width: 10px; height: 10px;
+            background-color: var(--highlight-color); border-radius: 50%;
+            margin: 0 4px; animation: dots-pulse 1.4s infinite ease-in-out both;
+        }
+        .loader-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loader-dots span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes dots-pulse { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.7; } 40% { transform: scale(1.0); opacity: 1; } }
+
+        /* Dialog Styling */
+        dialog {
+            border: 2px solid var(--input-highlight-border); background-color: var(--bg-color);
+            color: var(--text-color); padding: 1.5em; border-radius: 0;
+            max-width: 80%; min-width: 300px; box-shadow: var(--dialog-shadow);
+            font: var(--common-font); text-align: left;
+        }
+        dialog::backdrop { background-color: var(--dialog-backdrop-bg); backdrop-filter: blur(3px); }
+        dialog h3 { margin-top: 0; }
+        dialog button { margin-top: 1em; margin-right: 0.5em; }
+        dialog button:first-of-type { margin-left: 0; }
+
+        /* Media Elements */
+        .media-container {
+            border: 1px dashed var(--server-stats-color); padding: 1em; margin-bottom: 1em;
+            background: var(--media-container-bg);
+        }
+        .media-container audio, .media-container video {
+            display: block; width: 100%; margin-top: 0.5em; outline: none;
+        }
+        audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+            background-color: var(--media-controls-bg); border-radius: 0;
+        }
+        audio::-webkit-media-controls-play-button, video::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-mute-button, video::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-timeline, video::-webkit-media-controls-timeline {
+            filter: brightness(1.5) contrast(1.5); /* This may need theme-specific adjustment if too stark */
+        }
+
+        /* Content Editable */
+        .editable-content {
+            border: 1px dashed var(--server-stats-color); padding: 0.5em; min-height: 3em;
+            text-align: left; cursor: text;
+        }
+        .editable-content:focus {
+            outline: 2px solid var(--input-highlight-border); border-color: var(--input-highlight-border);
+            background-color: var(--details-bg); /* Using details bg for subtle focus change */
+        }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>
+                <span class="highlight-background">Hello, World!</span>
+            </h1>
+            <p>This is something that <br>A <a href="#about" aria-label="Learn more about RiSE services">purpose-built custom-made solution</a> to handle all kinds of stuff, kinda, is made. Thisisareallylongwordthatshouldwrapandnotbreakthelayouthopefullyitdoes.</p>
+        </header>
+
+        <main>
+            <section id="about" aria-labelledby="about-heading">
+                <h2 id="about-heading">About us</h2>
+                <p>We are dedicated to providing unique solutions. Our platform is designed with flexibility and customization in mind, leveraging modern web technologies. Asupercalifragilisticexpialidociouswordtest. This text contains an <mark>important highlighted</mark> section.</p>
+                <details>
+                    <summary>More Technical Details (Click to expand)</summary>
+                    <p>This section utilizes the HTML5 <code><details></code> and <code><summary></code> elements for collapsible content. It's a great way to hide supplementary information until the user requests it.</p>
+                    <p>We also focus on accessibility (WAI-ARIA) and semantic markup like <code><article></code>, <code><aside></code>, <code><nav></code>, <code><figure></code>, and <code><time></code>.</p>
+                </details>
+            </section>
+
+            <section id="owner" aria-labelledby="owner-heading">
+                <h2 id="owner-heading">Who owns and manages it?</h2>
+                <p>The enigmatic "Who Knows" entity continues to steer the ship with mysterious precision.</p>
+                <figure style="text-align:center;">
+                    <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>" alt="Mysterious owner icon" width="50" height="50" style="opacity: 0.7; margin-top: 10px; display:inline-block;">
+                    <figcaption>A representation of the elusive management.</figcaption>
+                </figure>
+            </section>
+
+            <section id="html5-showcase" aria-labelledby="html5-showcase-heading">
+                <h2 id="html5-showcase-heading">HTML5 Form Elements Showcase</h2>
+                <form action="#" method="post" onsubmit="alert('Form submitted (mock)!'); return false;">
+                    <fieldset>
+                        <legend>Contact Form Extended</legend>
+
+                        <div>
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="fullname" placeholder="E.g., Ada Lovelace">
+                        </div>
+
+                        <div>
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email_address" placeholder="you@example.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="search_query">Search Site:</label>
+                            <input type="search" id="search_query" name="search_query" placeholder="E.g., HTML5 features">
+                        </div>
+
+                        <div>
+                            <label for="phone">Phone Number (Optional):</label>
+                            <input type="tel" id="phone" name="phone_number" placeholder="E.g., +1-555-0123" pattern="[+]?[0-9\s\-()]+">
+                        </div>
+
+                        <div>
+                            <label for="website">Your Website (Optional):</label>
+                            <input type="url" id="website" name="user_website" placeholder="https://example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="appointment_date">Preferred Appointment Date:</label>
+                            <input type="date" id="appointment_date" name="appointment_date" min="2024-01-01">
+                        </div>
+
+                        <div>
+                            <label for="appointment_time">Preferred Appointment Time:</label>
+                            <input type="time" id="appointment_time" name="appointment_time">
+                        </div>
+                        
+                        <div>
+                            <label for="meeting_datetime">Specific Meeting Date & Time:</label>
+                            <input type="datetime-local" id="meeting_datetime" name="meeting_datetime">
+                        </div>
+
+                        <div>
+                            <label for="project_month">Project Start Month:</label>
+                            <input type="month" id="project_month" name="project_month">
+                        </div>
+
+                        <div>
+                            <label for="target_week">Target Week:</label>
+                            <input type="week" id="target_week" name="target_week">
+                        </div>
+
+                        <div>
+                            <label for="fav_color">Accent Color:</label>
+                            <input type="color" id="fav_color" name="fav_color" value="#e0e2f4">
+                        </div>
+
+                        <div>
+                            <label for="quantity">Quantity (1-100):</label>
+                            <input type="number" id="quantity" name="quantity" min="1" max="100" step="1" value="10">
+                        </div>
+
+                        <div>
+                            <label for="subject">Subject:</label>
+                            <input list="subjects" id="subject" name="subject_choice" placeholder="Type or select a subject">
+                            <datalist id="subjects">
+                                <option value="General Inquiry">
+                                <option value="Support Request">
+                                <option value="Feature Suggestion">
+                                <option value="Partnership">
+                            </datalist>
+                        </div>
+
+                        <div>
+                            <label for="country">Country:</label>
+                            <select id="country" name="country" required>
+                                <option value="">--Please choose an option--</option>
+                                <option value="us">United States</option>
+                                <option value="ca">Canada</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="de">Germany</option>
+                                <option value="jp">Japan</option>
+                                <option value="other">Other LongOptionTestToShowWrappingInSelectIfApplicable</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-file-upload">
+                            <label for="cv_upload" class="form-file-label">Upload CV (PDF, DOCX):</label>
+                            <input type="file" id="cv_upload" name="cv_upload" accept=".pdf,.doc,.docx">
+                            <span class="form-file-button" role="button" aria-controls="cv_upload" tabindex="0">Choose File</span>
+                            <span class="form-file-text">No file chosen...</span>
+                        </div>
+                        
+                        <div>
+                            <label for="priority">Priority Level (1 low, 10 high):</label>
+                            <input type="range" id="priority" name="priority_level" min="1" max="10" value="5">
+                            <output name="priorityOutput" for="priority">5</output>
+                        </div>
+                        
+                        <fieldset>
+                            <legend>Notification Preferences</legend>
+                            <div class="form-control-group">
+                                <input type="checkbox" id="newsletter" name="notifications" value="newsletter" checked>
+                                <label for="newsletter">Subscribe to newsletter</label>
+                            </div>
+                            <div class="form-control-group">
+                                <input type="checkbox" id="updates" name="notifications" value="updates">
+                                <label for="updates">Receive product updates</label>
+                            </div>
+                            <div class="form-control-group">
+                                <input type="checkbox" id="offers" name="notifications" value="offers" disabled>
+                                <label for="offers">Receive special offers (disabled)</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Service Tier</legend>
+                            <div class="form-control-group">
+                                <input type="radio" id="tier_basic" name="service_tier" value="basic" checked>
+                                <label for="tier_basic">Basic Tier</label>
+                            </div>
+                            <div class="form-control-group">
+                                <input type="radio" id="tier_pro" name="service_tier" value="pro">
+                                <label for="tier_pro">Pro Tier</label>
+                            </div>
+                            <div class="form-control-group">
+                                <input type="radio" id="tier_enterprise" name="service_tier" value="enterprise" disabled>
+                                <label for="tier_enterprise">Enterprise Tier (disabled)</label>
+                            </div>
+                        </fieldset>
+
+                        <div>
+                            <label for="message">Your Message:</label>
+                            <textarea id="message" name="user_message" rows="5" placeholder="Enter your message here..." required></textarea>
+                        </div>
+                        
+                        <div style="text-align:center; margin-top:1em;">
+                            <button type="submit"><span>Send Message</span></button>
+                            <button type="reset" id="resetFormButton"><span>Reset Form</span></button>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section id="indicators-loaders" aria-labelledby="indicators-loaders-heading">
+                <h2 id="indicators-loaders-heading">Progress Indicators & Loaders</h2>
+                
+                <h3>Progress Bar (Determinate)</h3>
+                <p>Task Progress:</p>
+                <label for="task-progress" class="sr-only">Task Progress</label>
+                <progress id="task-progress" value="70" max="100">70%</progress>
+
+                <h3>Meter Element (Scalar Measurement)</h3>
+                <p>Storage Usage (60% - normal):</p>
+                <label for="storage-meter" class="sr-only">Storage Usage</label>
+                <meter id="storage-meter" value="60" min="0" max="100" low="30" high="80" optimum="50" title="60% used">60%</meter>
+                
+                <p>Signal Strength (20% - low):</p>
+                <label for="signal-meter" class="sr-only">Signal Strength</label>
+                <meter id="signal-meter" value="20" min="0" max="100" low="30" high="80" optimum="90" title="20% - Low">20%</meter>
+
+                <p>Battery Level (95% - high/optimum):</p>
+                <label for="battery-meter" class="sr-only">Battery Level</label>
+                <meter id="battery-meter" value="95" min="0" max="100" low="20" high="80" optimum="100" title="95% - High">95%</meter>
+                
+                <h3>Progress Bar (Indeterminate)</h3>
+                <p>Processing Data:</p>
+                <label for="indeterminate-loader" class="sr-only">Loading</label>
+                <progress id="indeterminate-loader" title="Processing..."></progress>
+                
+                <h3>Custom CSS Loaders</h3>
+                <p>CLI Spinner Style:</p>
+                <div id="cli-spinner-container">
+                    <span id="cli-spinner" aria-live="polite" aria-label="Loading">|</span>
+                </div>
+                
+                <p>Pulsating Dots Style:</p>
+                <div class="loader-dots" aria-label="Loading dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </section>
+
+            <section id="interactive-media" aria-labelledby="interactive-media-heading">
+                <h2 id="interactive-media-heading">Interactive, Media & Dynamic Content</h2>
+
+                <h3>Modal Dialog</h3>
+                <p>Click the button to open a modal dialog using the <code><dialog></code> element.</p>
+                <button id="openDialogButton"><span>Open Dialog</span></button>
+                <dialog id="myDialog">
+                    <h3>Sample Dialog</h3>
+                    <p>This is a native HTML5 dialog. You can close it by pressing ESC or clicking the button below.</p>
+                    <form method="dialog">
+                        <button><span>Close</span></button>
+                        <button type="button" id="dialogCloseJsButton"><span>Close (JS)</span></button>
+                    </form>
+                </dialog>
+
+                <h3>Content Editable</h3>
+                <p>Click the paragraph below to edit its content directly in the browser:</p>
+                <div class="editable-content" contenteditable="true" spellcheck="false">
+                    This text is editable. Try changing it! Type something new here...
+                </div>
+                <p><small>(Spellcheck is off for this example)</small></p>
+
+                <h3>Audio Player</h3>
+                <div class="media-container">
+                    <p>A simple <code><audio></code> element with default controls.</p>
+                    <audio controls>
+                        <source src="data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAARAAADTGF2ZjU4LjI5LjEwMAAAAAAAAAAAAAAA//tRwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E🎵%3C/text%3E%3C/svg%3E" alt="Audio icon" style="width:50px; height:50px;"/>
+                    </audio>
+                </div>
+
+                <h3>Video Player</h3>
+                <div class="media-container">
+                    <p>A simple <code><video></code> element with default controls and a poster.</p>
+                    <video controls width="100%" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 90'%3E%3Crect width='160' height='90' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='14' fill='%23ccc'%3EVideo Poster%3C/text%3E%3C/svg%3E">
+                        <source src="data:video/mp4;base64,AAAAHGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAyptZGF0AAAABm1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAADwAAAAAAAAAAAAAAAQAAAAAAAAPoAAAAAAAAAAAAAAAAAAAAAAABA VzHdmdcdAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAfcGRpbgAAAChtZGlhAAAAIG1kaGQAAAAAAAAAAAAAAAACSAAAdAAAAAA1NBoBWGFuZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAA21pbmYAAAB2bWhkAAAAAQAAAAAAAAAAAAAAJGRpbmYAAABkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEtc3RibAAAAJaLc3RzZAAAAAAAAAABAAAAVGF2YzEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAgACABAAUhggbm9uZQAAAAAAAAAAEjB ITUBAQAAAEBCAserAAAAGHN0dHMAAAAAAAAAAQAAAAUAAQAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAHHN0c3oAAAAAAAAAEwAAAAUAAAAcc3RjbwAAAAAAAAABAAAAMAAAAGJ1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw" type="video/mp4">
+                        Your browser does not support the video tag.
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E🎬%3C/text%3E%3C/svg%3E" alt="Video icon" style="width:100px; height: auto;"/>
+                    </video>
+                </div>
+            </section>
+        </main>
+
+        <nav aria-label="Site navigation">
+            <button id="themeToggleButton" aria-pressed="false"><span>Toggle Theme</span></button>
+            <button onclick="window.location.href='https://www.cloudflarestatus.com/';"><span>Server Status</span></button>
+            <button onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href='/'; }"><span>Go Back</span></button>
+        </nav>
+
+        <footer>
+            <p class="server-stats">
+                Served by localhost<br>
+                747985634
+            </p>
+            <p><small>© Template. All rights reserved (not really).</small></p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Script
+        const themeToggleButton = document.getElementById('themeToggleButton');
+        const htmlElement = document.documentElement;
+
+        function applyTheme(theme) {
+            htmlElement.setAttribute('data-theme', theme);
+            if (theme === 'light') {
+                themeToggleButton.setAttribute('aria-pressed', 'true');
+                // Optional: Change button text/icon e.g., themeToggleButton.querySelector('span').textContent = 'Dark Mode';
+            } else {
+                htmlElement.removeAttribute('data-theme'); // Defaults to dark (styles in :root)
+                themeToggleButton.setAttribute('aria-pressed', 'false');
+                // Optional: Change button text/icon e.g., themeToggleButton.querySelector('span').textContent = 'Light Mode';
+            }
+        }
+
+        // Load saved theme or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                applyTheme('light');
+            } else {
+                applyTheme('dark'); // Explicitly set dark if no preference/no saved
+            }
+        }
+        // Listen for system theme changes if no user preference is set
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) { // Only if user hasn't manually set a theme
+                 applyTheme(e.matches ? 'light' : 'dark');
+            }
+        });
+
+        themeToggleButton.addEventListener('click', () => {
+            let currentTheme = htmlElement.getAttribute('data-theme');
+            if (!currentTheme && !(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                // If data-theme is not set, it implies dark mode (from :root)
+                // and system preference is also dark or not detectable.
+                currentTheme = 'dark';
+            } else if (!currentTheme && (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                 currentTheme = 'light'; // system preference was light
+            }
+
+
+            if (currentTheme === 'light') {
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                applyTheme('light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+
+        // Script for range input output update
+        const priorityInput = document.getElementById('priority');
+        const priorityOutput = document.querySelector('output[for="priority"]');
+        
+        if (priorityInput && priorityOutput) {
+            priorityOutput.value = priorityInput.value; // Set initial value
+            priorityInput.addEventListener('input', function() {
+                priorityOutput.value = this.value;
+            });
+        }
+
+        // Script for custom file input
+        const fileUploadInput = document.getElementById('cv_upload');
+        if (fileUploadInput) {
+            const fileButtonSpan = fileUploadInput.parentElement.querySelector('.form-file-button');
+            const fileTextSpan = fileUploadInput.parentElement.querySelector('.form-file-text');
+            const fileUploadContainer = fileUploadInput.parentElement;
+            
+            fileUploadInput.addEventListener('change', function() {
+                if (this.files && this.files.length > 0) {
+                    fileTextSpan.textContent = this.files[0].name;
+                    fileButtonSpan.textContent = 'Reselect File';
+                    fileUploadContainer.classList.add('file-chosen');
+                } else {
+                    fileTextSpan.textContent = 'No file chosen...';
+                    fileButtonSpan.textContent = 'Choose File';
+                    fileUploadContainer.classList.remove('file-chosen');
+                }
+            });
+            if (fileButtonSpan) {
+                fileButtonSpan.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        fileUploadInput.click();
+                    }
+                });
+            }
+        }
+        
+        // Script for resetting file input text and priority output on form reset
+        const resetFormButton = document.getElementById('resetFormButton');
+        if (resetFormButton) {
+            resetFormButton.addEventListener('click', function() {
+                setTimeout(() => { // Use timeout to allow form to reset first
+                    if (fileUploadInput) {
+                        const fileTextSpan = fileUploadInput.parentElement.querySelector('.form-file-text');
+                        const fileButtonSpan = fileUploadInput.parentElement.querySelector('.form-file-button');
+                        const fileUploadContainer = fileUploadInput.parentElement;
+                        if (fileTextSpan) fileTextSpan.textContent = 'No file chosen...';
+                        if (fileButtonSpan) fileButtonSpan.textContent = 'Choose File';
+                        if (fileUploadContainer) fileUploadContainer.classList.remove('file-chosen');
+                    }
+                    if (priorityInput && priorityOutput) {
+                        priorityOutput.value = priorityInput.value; // Reflects the actual reset value of input
+                    }
+                }, 0);
+            });
+        }
+
+        // Script for Dialog element
+        const dialog = document.getElementById('myDialog');
+        const openDialogButton = document.getElementById('openDialogButton');
+        const dialogCloseJsButton = document.getElementById('dialogCloseJsButton');
+
+        if (dialog && openDialogButton) {
+            openDialogButton.addEventListener('click', () => {
+                if (typeof dialog.showModal === "function") {
+                    dialog.showModal();
+                } else {
+                    alert("Dialog API not supported by this browser."); // Fallback for older browsers
+                }
+            });
+        }
+        if (dialog && dialogCloseJsButton) {
+             dialogCloseJsButton.addEventListener('click', () => {
+                dialog.close();
+            });
+        }
+
+
+        // Script for CLI Spinner
+        const cliSpinnerElement = document.getElementById('cli-spinner');
+        if (cliSpinnerElement) {
+            const spinChars = ['|', '/', '-', '\\'];
+            let currentCharIndex = 0;
+            setInterval(() => {
+                cliSpinnerElement.textContent = spinChars[currentCharIndex];
+                currentCharIndex = (currentCharIndex + 1) % spinChars.length;
+            }, 200);
+        }
+
+        // Script for Dynamic Timestamp in Footer
+        function updateFooterTimestamp() {
+            const timeElements = document.querySelectorAll('footer p.server-stats time[datetime], footer p small time[datetime]');
+            if (timeElements.length > 0) {
+                const now = new Date();
+                const mainTimestampElement = document.querySelector('footer p.server-stats time[datetime]');
+                if (mainTimestampElement) {
+                    mainTimestampElement.setAttribute('datetime', now.toISOString());
+                    mainTimestampElement.textContent = Math.floor(now.getTime() / 1000);
+                }
+                const yearElement = document.querySelector('footer p small time[datetime]'); 
+                 if(yearElement && yearElement.getAttribute('datetime') !== now.getFullYear().toString()) { // Only update if year changed
+                    yearElement.textContent = now.getFullYear();
+                    yearElement.setAttribute('datetime', now.getFullYear().toString());
+                }
+            }
+        }
+        updateFooterTimestamp(); 
+        // setInterval(updateFooterTimestamp, 60000); // Optionally update periodically
+    </script>
+</body>
+</html>
